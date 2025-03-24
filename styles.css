@@ -1,0 +1,69 @@
+/* ------ MODAL ------ */
+
+[data-modal-group-status] {
+  transition: all 0.2s linear;
+}
+
+[data-modal-group-status="active"] {
+  opacity: 1;
+  visibility: visible;
+}
+
+[data-modal-name][data-modal-status="active"] {
+  display: flex;
+}
+
+/* Form Validation */
+
+/* Field: Error */
+[data-validate].is--error input,
+[data-validate].is--error textarea,
+[data-validate].is--error select {
+  border-color: #ff4c24;
+}
+
+[data-validate].is--error .form-field-icon.is--error,
+[data-validate].is--error .radiocheck-field-icon.is--error {
+  opacity: 1;
+}
+
+/* Field: Success */
+[data-validate].is--success .form-field-icon.is--success,
+[data-validate].is--success .radiocheck-field-icon.is--success {
+  opacity: 1;
+}
+
+/* Field: Custom Radio or Checkbox */
+[data-form-validate]
+  .radiocheck-field
+  input:focus-visible
+  ~ .radiocheck-custom {
+  background-color: #d0cfcd;
+  color: #e2e1df;
+}
+
+[data-form-validate]
+  .radiocheck-field
+  input:focus-visible:checked
+  ~ .radiocheck-custom,
+[data-form-validate] .radiocheck-field input:checked ~ .radiocheck-custom {
+  background-color: #131313;
+  color: #efeeec;
+}
+
+[data-form-validate] .radiocheck-field .radiocheck-label.is--small {
+  margin-top: 0.125em;
+}
+
+[data-validate].is--error .radiocheck-custom {
+  border-color: #ff4c24;
+}
+
+[data-validate].is--error input:checked ~ .radiocheck-custom {
+  border-color: #131313;
+}
+
+/* Field: Select */
+[data-form-validate] select:has(option[value=""]:checked) {
+  color: rgba(19, 19, 19, 0.3);
+}
