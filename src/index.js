@@ -559,11 +559,6 @@ function initScrollTriggerAnimations() {
   });
 }
 
-// Call the function to initialize the animations
-initScrollTriggerAnimations();
-
-// Call the function to initialize the animations
-initScrollTriggerAnimations();
 let flitsPath = $(".footer_svg").find("path");
 console.log(flitsPath);
 
