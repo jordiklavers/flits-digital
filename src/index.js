@@ -155,11 +155,12 @@ function initModalBasic() {
   const modalGroup = document.querySelector("[data-modal-group-status]");
   const modals = document.querySelectorAll("[data-modal-name]");
   const modalTargets = document.querySelectorAll("[data-modal-target]");
+  const isMobile = window.innerWidth <= 768;
 
   // Open modal
   modalTargets.forEach((modalTarget) => {
     modalTarget.addEventListener("click", function () {
-      lenis.stop();
+      if (!isMobile) lenis.stop();
       const modalTargetName = this.getAttribute("data-modal-target");
 
       // Close all modals
@@ -206,7 +207,7 @@ function initModalBasic() {
     if (modalGroup) {
       modalGroup.setAttribute("data-modal-group-status", "not-active");
     }
-    lenis.start();
+    if (!isMobile) lenis.start();
   }
 }
 
@@ -561,11 +562,6 @@ function initScrollTriggerAnimations() {
   });
 }
 
-// Call the function to initialize the animations
-initScrollTriggerAnimations();
-
-// Call the function to initialize the animations
-initScrollTriggerAnimations();
 let flitsPath = $(".footer_svg").find("path");
 console.log(flitsPath);
 
@@ -634,10 +630,19 @@ const casesSwiper = new Swiper(".swiper.is-cases", {
 const reviewsSwiper = new Swiper(".swiper.is-reviews", {
   direction: "horizontal",
   grabCursor: true,
-  slidesPerView: 3,
-  spaceBetween: 16,
+  loop: true,
+
   autoplay: {
     delay: 5000,
   },
-  loop: true,
+  breakpoints: {
+    768: {
+      slidesPerView: 1,
+      spaceBetween: 16,
+    },
+    1024: {
+      slidesPerView: 3,
+      spaceBetween: 16,
+    },
+  },
 });

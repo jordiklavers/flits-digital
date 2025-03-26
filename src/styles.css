@@ -1,7 +1,12 @@
 /* ------ MODAL ------ */
 
 [data-modal-group-status] {
-  transition: all 0.2s linear;
+  transition: all 0.1s linear;
+}
+
+.modal__card {
+  transition: transform 0.4s var(--animation-ease);
+  transform: translateY(25%);
 }
 
 [data-modal-group-status="active"] {
@@ -9,11 +14,37 @@
   visibility: visible;
 }
 
-[data-modal-name][data-modal-status="active"] {
+[data-modal-group-status="active"] .modal__card {
+  transform: translateY(0) rotate(0deg);
+}
+
+[data-modal-name] {
   display: flex;
 }
 
-/* Form Validation */
+/* ------ FORM VALIDATION ------  */
+
+/* Form Validation Styling */
+
+.modal__btn-close-bar {
+  transition: transform 0.3s var(--animation-ease);
+}
+
+.modal__btn-close {
+  transition: background-color 0.4s var(--animation-ease);
+}
+
+.modal__btn-close:hover {
+  background-color: var(--swatch--brand);
+}
+
+.modal__btn-close:hover .modal__btn-close-bar {
+  transform: rotate(90deg);
+}
+
+.modal__btn-close:hover .modal__btn-close-bar.is--second {
+  transform: rotate(90deg);
+}
 
 /* Field: Error */
 [data-validate].is--error input,
