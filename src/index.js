@@ -143,6 +143,12 @@ function initMenu() {
     });
   });
 
+  menuLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      closeNav();
+    });
+  });
+
   // If menu is open, you can close it using the "escape" key
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && navWrap.getAttribute("data-nav") === "open") {
