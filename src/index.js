@@ -1,4 +1,4 @@
-console.log("test")
+console.log("test");
 
 // Initialize a new Lenis instance for smooth scrolling
 const lenis = new Lenis();
